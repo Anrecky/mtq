@@ -12,4 +12,8 @@ class Group extends Model
     {
         return $this->hasMany(User::class);
     }
+    public function contest()
+    {
+        return $this->belongsTo(Contest::class);
+    }
 }

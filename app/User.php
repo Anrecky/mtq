@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'birthdate', 'gender', 'is_admin', 'status', 'avatar'
+        'name', 'password', 'birthdate', 'gender', 'is_admin', 'status', 'avatar', 'username', 'district'
     ];
 
     /**
@@ -43,7 +43,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
         'is_admin' => 'boolean',
     ];
     protected $dates = ['created_at', 'updated_at'];
@@ -68,6 +67,15 @@ class User extends Authenticatable
     public function getFormatedBirthDateAttribute()
     {
         return Carbon::parse($this->birthdate)->translatedFormat('d F Y');
+    }
+
+    public function setUsernameAttribute($value)
+    {
+        $this->attributes['username'] = strtolower($value);
+    }
+    public function setDistrictAttribute($value)
+    {
+        $this->attributes['district'] = strtolower($value);
     }
 
     public function scopeParticipant($query)
