@@ -27,9 +27,6 @@
                             Nama
                         </th>
                         <th>
-                            Email
-                        </th>
-                        <th>
                             Jenis Kelamin
                         </th>
                         <th>
@@ -54,9 +51,6 @@
                         </td>
                         <td>
                             {{$item->name}}
-                        </td>
-                        <td>
-                            {{$item->email}}
                         </td>
                         <td>
                             <i style="font-size:2.5rem;" class="{{$item->Jenisk}}"></i>
