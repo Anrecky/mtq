@@ -10,7 +10,12 @@
             <p class="card-text">Umur : {{$user->age}}</p>
             <p class="card-text">Tanggal Lahir : {{$user->formatedbirthdate}}</p>
             <p class="card-text">Status : {{$user->status}}</p>
+            @if ($user->contest)
             <p class="card-text">Golongan Musabaqah : {{$user->contest->name}}</p>
+            @endif
+            @if ($user->group)
+            <p class="card-text">Regu : {{$user->group->name}}</p>
+            @endif
 
         </div>
     </div>
