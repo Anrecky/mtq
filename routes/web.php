@@ -18,3 +18,6 @@ Route::namespace('Admin')->prefix('admin')->middleware(['admin', 'auth'])->name(
 Route::resource('peserta', 'ParticipantsController')->middleware(['participant', 'auth']);
 Route::post('/peserta/upload', 'ParticipantsController@uploadDocuments')->middleware(['participant', 'auth']);
 Route::get('/file/{ldoc}', 'DocumentsController@download')->name('doc.download');
+
+
+Route::get('/api/search','GroupController@search')->name('search');
