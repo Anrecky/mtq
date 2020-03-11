@@ -15,7 +15,6 @@ class AdminTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'Administrator',
-            'email' => 'administratorkesra@bangka.go.id',
             'username' => 'administrator20kesra',
             'password' => Hash::make('adminkesra2020*%'),
             'avatar' => 'default-peserta.png',
