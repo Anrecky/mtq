@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Group;
 use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Database\Eloquent\Builder;
 
 class GroupController extends Controller
 {
@@ -81,5 +83,11 @@ class GroupController extends Controller
     public function destroy(Group $group)
     {
         //
+    }
+    public function search(Request $request)
+    {
+        $group = Group::where('name','like','%'.$request->keywords.'%')->whereHas('user', function(Builder $query) use ( $request ){$query->where('district',$request->district);})->get();
+
+        return response()->json($group);
     }
 }
