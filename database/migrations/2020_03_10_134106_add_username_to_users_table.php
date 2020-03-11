@@ -14,7 +14,7 @@ class AddUsernameToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('username', 50)->unique()->after('email');
+            $table->string('username', 50)->unique()->after('name');
         });
     }
 
